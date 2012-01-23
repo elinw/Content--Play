@@ -286,7 +286,7 @@ CREATE TABLE IF NOT EXISTS `jos_content` (
   `config` mediumtext NOT NULL,
   `media` text NOT NULL,
   `rules` text NOT NULL,
-  PRIMARY KEY (`content_id`),
+ PRIMARY KEY (`content_id`),
   KEY `type_id` (`type_id`),
   KEY `idx_visibility` (`type_id`,`state`,`access`,`publish_start_date`,`publish_end_date`),
   KEY `idx_visibility_created` (`type_id`,`state`,`access`,`publish_start_date`,`publish_end_date`,`created_date`),
@@ -294,8 +294,12 @@ CREATE TABLE IF NOT EXISTS `jos_content` (
   KEY `idx_visibility_likes` (`type_id`,`state`,`access`,`publish_start_date`,`publish_end_date`,`likes`),
   KEY `modified_user_id` (`modified_user_id`),
   KEY `checked_out_user_id` (`checked_out_user_id`),
-  KEY `created_user_id` (`created_user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1509 ;
+  KEY `created_user_id` (`created_user_id`),
+  CONSTRAINT `jos_content_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `jos_content_types` (`type_id`),
+  CONSTRAINT `jos_content_ibfk_2` FOREIGN KEY (`modified_user_id`) REFERENCES `jos_users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `jos_content_ibfk_3` FOREIGN KEY (`checked_out_user_id`) REFERENCES `jos_users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  CONSTRAINT `jos_content_ibfk_4` FOREIGN KEY (`created_user_id`) REFERENCES `jos_users` (`id`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `jos_content`
@@ -473,6 +477,7 @@ CREATE TABLE IF NOT EXISTS `jos_content_hits` (
   `hit_modified_date` datetime DEFAULT NULL COMMENT 'The time that the content was last hit.',
   PRIMARY KEY (`content_id`),
   KEY `idx_hits` (`hits`)
+  CONSTRAINT `jos_content_hits_ibfk_1` FOREIGN KEY (`content_id`) REFERENCES `jos_content` (`content_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -488,7 +493,9 @@ CREATE TABLE IF NOT EXISTS `jos_content_likes` (
   `like_modified_date` datetime DEFAULT NULL COMMENT 'The time that the like was updated',
   PRIMARY KEY (`content_id`,`user_id`),
   KEY `member_id` (`user_id`)
+  CONSTRAINT `jos_content_likes_ibfk_1` FOREIGN KEY (`content_id`) REFERENCES `jos_content` (`content_id`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
 
 -- --------------------------------------------------------
 
@@ -575,13 +582,6 @@ CREATE TABLE IF NOT EXISTS `jos_session` (
   KEY `time` (`time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
---
--- Dumping data for table `jos_session`
---
-
-INSERT INTO `jos_session` (`session_id`, `client_id`, `guest`, `time`, `data`, `userid`, `username`, `usertype`) VALUES
-('0k2npl1ngv60ehf5heehp63442', 1, 0, '1327247598', '__default|a:8:{s:15:"session.counter";i:28;s:19:"session.timer.start";i:1327247405;s:18:"session.timer.last";i:1327247597;s:17:"session.timer.now";i:1327247598;s:22:"session.client.browser";s:101:"Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/535.7 (KHTML, like Gecko) Chrome/16.0.912.75 Safari/535.7";s:8:"registry";O:9:"JRegistry":1:{s:7:"\0*\0data";O:8:"stdClass":6:{s:11:"application";O:8:"stdClass":1:{s:4:"lang";s:0:"";}s:13:"com_installer";O:8:"stdClass":2:{s:7:"message";s:0:"";s:17:"extension_message";s:0:"";}s:9:"com_menus";O:8:"stdClass":2:{s:5:"items";O:8:"stdClass":6:{s:6:"filter";O:8:"stdClass":4:{s:8:"menutype";s:3:"top";s:6:"access";i:0;s:5:"level";i:0;s:8:"language";s:0:"";}s:10:"limitstart";i:0;s:6:"search";s:0:"";s:9:"published";s:2:"-2";s:8:"ordercol";s:5:"a.lft";s:9:"orderdirn";s:3:"asc";}s:4:"edit";O:8:"stdClass":1:{s:4:"item";O:8:"stdClass":4:{s:4:"data";N;s:4:"type";N;s:4:"link";N;s:2:"id";a:0:{}}}}s:4:"item";O:8:"stdClass":1:{s:6:"filter";O:8:"stdClass":1:{s:8:"menutype";s:3:"top";}}s:10:"com_config";O:8:"stdClass":1:{s:6:"config";O:8:"stdClass":1:{s:6:"global";O:8:"stdClass":1:{s:4:"data";N;}}}s:6:"global";O:8:"stdClass":1:{s:4:"list";O:8:"stdClass":1:{s:5:"limit";s:2:"20";}}}}s:4:"user";O:5:"JUser":23:{s:9:"\0*\0isRoot";b:1;s:2:"id";s:2:"42";s:4:"name";s:10:"Super User";s:8:"username";s:5:"admin";s:5:"email";s:14:"admin@fake.com";s:8:"password";s:65:"281e452822e2c775c3287f8190e9d39f:VGdKqA1jVAJeqsp59LFLG5y8RVr6Idzg";s:14:"password_clear";s:0:"";s:8:"usertype";s:10:"deprecated";s:5:"block";s:1:"0";s:9:"sendEmail";s:1:"1";s:12:"registerDate";s:19:"2012-01-22 15:50:03";s:13:"lastvisitDate";s:19:"0000-00-00 00:00:00";s:10:"activation";s:1:"0";s:6:"params";s:0:"";s:6:"groups";a:1:{i:8;s:1:"8";}s:5:"guest";i:0;s:10:"\0*\0_params";O:9:"JRegistry":1:{s:7:"\0*\0data";O:8:"stdClass":0:{}}s:14:"\0*\0_authGroups";a:2:{i:0;i:1;i:1;i:8;}s:14:"\0*\0_authLevels";a:4:{i:0;i:1;i:1;i:1;i:2;i:2;i:3;i:3;}s:15:"\0*\0_authActions";N;s:12:"\0*\0_errorMsg";N;s:10:"\0*\0_errors";a:0:{}s:3:"aid";i:0;}s:13:"session.token";s:32:"193c6d8bc8e4f9e45ab1c09442ea3753";}', 42, 'admin', '');
-
 -- --------------------------------------------------------
 
 --
@@ -624,7 +624,7 @@ INSERT INTO `jos_usergroups` (`id`, `parent_id`, `lft`, `rgt`, `title`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `jos_users` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
+  `id` int(10) NOT NULL unsigned AUTO_INCREMENT,
   `name` varchar(255) NOT NULL DEFAULT '',
   `username` varchar(150) NOT NULL DEFAULT '',
   `email` varchar(100) NOT NULL DEFAULT '',
