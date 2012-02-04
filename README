@@ -1,1 +1,9 @@
 Just a place to share some work on content.
+
+To run examples with the accompanying data you must create a data base and change the appropriate fields
+(database name, database user, database password) in the configuration.php.
+These example require PHP 5.3.
+
+These assume that you have a copy of the Joomla! Platform in a folder at the same level as the Content--Play folder.
+If you want to try the content example you will need to get the veroion of the platform with the proposed JContent
+libraries and related changes from the ebaySF repository at Github.

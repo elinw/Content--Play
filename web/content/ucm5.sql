@@ -932,22 +932,22 @@ ALTER TABLE `jos_contact_details`
 -- Constraints for table `jos_content`
 --
 ALTER TABLE `jos_content`
-  ADD CONSTRAINT ` jos_content_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES ` jos_content_types` (`type_id`),
-  ADD CONSTRAINT ` jos_content_ibfk_2` FOREIGN KEY (`modified_user_id`) REFERENCES ` jos_users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT ` jos_content_ibfk_3` FOREIGN KEY (`checked_out_user_id`) REFERENCES ` jos_users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT ` jos_content_ibfk_4` FOREIGN KEY (`created_user_id`) REFERENCES ` jos_users` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `jos_content_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `jos_content_types` (`type_id`),
+  ADD CONSTRAINT `jos_content_ibfk_2` FOREIGN KEY (`modified_user_id`) REFERENCES `jos_users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `jos_content_ibfk_3` FOREIGN KEY (`checked_out_user_id`) REFERENCES `jos_users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `jos_content_ibfk_4` FOREIGN KEY (`created_user_id`) REFERENCES `jos_users` (`id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `jos_content_hits`
 --
 ALTER TABLE `jos_content_hits`
-  ADD CONSTRAINT ` jos_content_hits_ibfk_1` FOREIGN KEY (`content_id`) REFERENCES ` jos_content` (`content_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `jos_content_hits_ibfk_1` FOREIGN KEY (`content_id`) REFERENCES `jos_content` (`content_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `jos_content_likes`
 --
 ALTER TABLE `jos_content_likes`
-  ADD CONSTRAINT ` jos_content_likes_ibfk_1` FOREIGN KEY (`content_id`) REFERENCES ` jos_content` (`content_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `jos_content_likes_ibfk_1` FOREIGN KEY (`content_id`) REFERENCES `jos_content` (`content_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `jos_newsfeeds`
