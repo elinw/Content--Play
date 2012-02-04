@@ -10,6 +10,7 @@
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
+SET FOREIGN_KEY_CHECKS=0;
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -834,8 +835,8 @@ INSERT INTO `jos_users` (`id`, `name`, `username`, `email`, `password`, `usertyp
 --
 
 CREATE TABLE IF NOT EXISTS `jos_user_usergroup_map` (
-  `user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Foreign Key to #__users.id',
-  `group_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Foreign Key to #__usergroups.id',
+  `user_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Foreign Key to  jos_users.id',
+  `group_id` int(10) unsigned NOT NULL DEFAULT '0' COMMENT 'Foreign Key to  jos_usergroups.id',
   PRIMARY KEY (`user_id`,`group_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -931,22 +932,22 @@ ALTER TABLE `jos_contact_details`
 -- Constraints for table `jos_content`
 --
 ALTER TABLE `jos_content`
-  ADD CONSTRAINT `#__content_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES `#__content_types` (`type_id`),
-  ADD CONSTRAINT `#__content_ibfk_2` FOREIGN KEY (`modified_user_id`) REFERENCES `#__users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `#__content_ibfk_3` FOREIGN KEY (`checked_out_user_id`) REFERENCES `#__users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `#__content_ibfk_4` FOREIGN KEY (`created_user_id`) REFERENCES `#__users` (`id`) ON UPDATE CASCADE;
+  ADD CONSTRAINT ` jos_content_ibfk_1` FOREIGN KEY (`type_id`) REFERENCES ` jos_content_types` (`type_id`),
+  ADD CONSTRAINT ` jos_content_ibfk_2` FOREIGN KEY (`modified_user_id`) REFERENCES ` jos_users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT ` jos_content_ibfk_3` FOREIGN KEY (`checked_out_user_id`) REFERENCES ` jos_users` (`id`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT ` jos_content_ibfk_4` FOREIGN KEY (`created_user_id`) REFERENCES ` jos_users` (`id`) ON UPDATE CASCADE;
 
 --
 -- Constraints for table `jos_content_hits`
 --
 ALTER TABLE `jos_content_hits`
-  ADD CONSTRAINT `#__content_hits_ibfk_1` FOREIGN KEY (`content_id`) REFERENCES `#__content` (`content_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT ` jos_content_hits_ibfk_1` FOREIGN KEY (`content_id`) REFERENCES ` jos_content` (`content_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `jos_content_likes`
 --
 ALTER TABLE `jos_content_likes`
-  ADD CONSTRAINT `#__content_likes_ibfk_1` FOREIGN KEY (`content_id`) REFERENCES `#__content` (`content_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT ` jos_content_likes_ibfk_1` FOREIGN KEY (`content_id`) REFERENCES ` jos_content` (`content_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Constraints for table `jos_newsfeeds`
@@ -965,6 +966,8 @@ ALTER TABLE `jos_old_content`
 --
 ALTER TABLE `jos_weblinks`
   ADD CONSTRAINT `jos_weblinks_ibfk_1` FOREIGN KEY (`content_id`) REFERENCES `jos_content` (`content_id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+SET FOREIGN_KEY_CHECKS=1;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
