@@ -17,7 +17,6 @@ SET FOREIGN_KEY_CHECKS=0;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
 
---
 -- Database: `ucm5`
 --
 
@@ -210,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `jos_content` (
   KEY `modified_user_id` (`modified_user_id`),
   KEY `checked_out_user_id` (`checked_out_user_id`),
   KEY `created_user_id` (`created_user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1509 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1510 ;
 
 --
 -- Dumping data for table `jos_content`
@@ -376,7 +375,8 @@ INSERT INTO `jos_content` (`content_id`, `type_id`, `title`, `alias`, `body`, `a
 (1505, 3, 'Bananas', 'bananas', 'Image Credit: Enzik\r\nRights: Creative Commons Share Alike Unported 3.0\r\nSource: http://commons.wikimedia.org/wiki/File:Bananas_-_Morocco.jpg', 1, 1, 0, 0, '2011-01-01 00:00:01', 0, '2011-01-01 00:00:01', 42, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, '{"show_contact_category":"show_with_link","show_contact_list":"","presentation_style":"plain","show_name":"","show_position":"1","show_email":"","show_street_address":"","show_suburb":"","show_state":"1","show_postcode":"","show_country":"1","show_telephone":"","show_mobile":"","show_fax":"","show_webpage":"","show_misc":"","show_image":"","allow_vcard":"","show_articles":"","show_profile":"","show_links":"1","linka_name":"Wikipedia: Banana English","linka":"http:\\/\\/en.wikipedia.org\\/wiki\\/Banana","linkb_name":"Wikipedia:  \\u0939\\u093f\\u0928\\u094d\\u0926\\u0940 \\u0915\\u0947\\u0932\\u093e","linkb":"http:\\/\\/hi.wikipedia.org\\/wiki\\/%E0%A4%95%E0%A5%87%E0%A4%B2%E0%A4%BE","linkc_name":"Wikipedia:Banana Portugu\\u00eas","linkc":"http:\\/\\/pt.wikipedia.org\\/wiki\\/Banana","linkd_name":"Wikipedia: \\u0411\\u0430\\u043d\\u0430\\u043d  \\u0420\\u0443\\u0441\\u0441\\u043a\\u0438\\u0439","linkd":"http:\\/\\/ru.wikipedia.org\\/\\u0411\\u0430\\u043d\\u0430\\u043d","linke_name":"","linke":"","contact_layout":"beez5:encyclopedia"}', '', ''),
 (1506, 3, 'Apples', 'apples', 'Image Credit: Fievet\r\nRights: Public Domain\r\nSource: http://commons.wikimedia.org/wiki/File:Pommes_vertes.JPG', 1, 1, 0, 0, '2011-01-01 00:00:01', 0, '2011-01-01 00:00:01', 42, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, '{"show_contact_category":"","show_contact_list":"","presentation_style":"plain","show_name":"","show_position":"","show_email":"","show_street_address":"","show_suburb":"","show_state":"","show_postcode":"","show_country":"","show_telephone":"","show_mobile":"","show_fax":"","show_webpage":"","show_misc":"","show_image":"","allow_vcard":"","show_articles":"","show_profile":"","show_links":"1","linka_name":"Wikipedia: Apples English","linka":"http:\\/\\/en.wikipedia.org\\/wiki\\/Apple","linkb_name":"Wikipedia: Manzana Espa\\u00f1ol ","linkb":"http:\\/\\/es.wikipedia.org\\/wiki\\/Manzana","linkc_name":"Wikipedia: \\u82f9\\u679c \\u4e2d\\u6587","linkc":"http:\\/\\/zh.wikipedia.org\\/zh\\/\\u82f9\\u679c","linkd_name":"Wikipedia: Tofaa Kiswahili","linkd":"http:\\/\\/sw.wikipedia.org\\/wiki\\/Tofaa","linke_name":"","linke":"","contact_layout":"beez5:encyclopedia"}', '', ''),
 (1507, 3, 'Tamarind', 'tamarind', 'Image Credit: Franz Eugen Köhler, Köhler''s Medizinal-Pflanzen \r\nRights: Public Domain\r\nSource:http://commons.wikimedia.org/wiki/File:Koeh-134.jpg', 1, 1, 0, 0, '2011-01-01 00:00:01', 0, '2011-01-01 00:00:01', 42, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, '{"show_contact_category":"","show_contact_list":"","presentation_style":"plain","show_name":"","show_position":"","show_email":"","show_street_address":"","show_suburb":"","show_state":"","show_postcode":"","show_country":"","show_telephone":"","show_mobile":"","show_fax":"","show_webpage":"","show_misc":"","show_image":"","allow_vcard":"","show_articles":"","show_profile":"","show_links":"1","linka_name":"Wikipedia: Tamarind English","linka":"http:\\/\\/en.wikipedia.org\\/wiki\\/Tamarind","linkb_name":"Wikipedia: \\u09a4\\u09c7\\u0981\\u09a4\\u09c1\\u09b2  \\u09ac\\u09be\\u0982\\u09b2\\u09be  ","linkb":"http:\\/\\/bn.wikipedia.org\\/wiki\\/\\u09a4\\u09c7\\u0981\\u09a4\\u09c1\\u09b2 ","linkc_name":"Wikipedia: Tamarinier Fran\\u00e7ais","linkc":"http:\\/\\/fr.wikipedia.org\\/wiki\\/Tamarinier","linkd_name":"Wikipedia:Tamaline lea faka-Tonga","linkd":"http:\\/\\/to.wikipedia.org\\/wiki\\/Tamaline","linke_name":"","linke":"","contact_layout":"beez5:encyclopedia"}', '', ''),
-(1508, 3, 'Shop Address', 'shop-address', '', 1, 1, 0, 0, '2011-01-01 00:00:01', 0, '2011-01-01 00:00:01', 42, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, '{"show_contact_category":"","show_contact_list":"","presentation_style":"","show_name":"","show_position":"","show_email":"","show_street_address":"","show_suburb":"","show_state":"","show_postcode":"","show_country":"","show_telephone":"","show_mobile":"","show_fax":"","show_webpage":"","show_misc":"","show_image":"","allow_vcard":"","show_articles":"","show_profile":"","show_links":"","linka_name":"","linka":"","linkb_name":"","linkb":"","linkc_name":"","linkc":"","linkd_name":"","linkd":"","linke_name":"","linke":"","show_email_form":"","show_email_copy":"","banned_email":"","banned_subject":"","banned_text":"","validate_session":"","custom_reply":"","redirect":""}', '', '');
+(1508, 3, 'Shop Address', 'shop-address', '', 1, 1, 0, 0, '2011-01-01 00:00:01', 0, '2011-01-01 00:00:01', 42, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, '{"show_contact_category":"","show_contact_list":"","presentation_style":"","show_name":"","show_position":"","show_email":"","show_street_address":"","show_suburb":"","show_state":"","show_postcode":"","show_country":"","show_telephone":"","show_mobile":"","show_fax":"","show_webpage":"","show_misc":"","show_image":"","allow_vcard":"","show_articles":"","show_profile":"","show_links":"","linka_name":"","linka":"","linkb_name":"","linkb":"","linkc_name":"","linkc":"","linkd_name":"","linkd":"","linke_name":"","linke":"","show_email_form":"","show_email_copy":"","banned_email":"","banned_subject":"","banned_text":"","validate_session":"","custom_reply":"","redirect":""}', '', ''),
+(1509, 6, 'Hello Unfied Content Model!', '', '<h2>What is the unified content model? </h2>\r\n<p>In the Joomla! CMS we have always thought of Articles, Weblinks, Newsfeeds, Contacts and so on\r\n				as fundamentally different things. In the UCM, we think about all of those as kinds of content and take\r\n				advantage of the fact that they have a lot of things in common with each other.</p>\r\n<h2>Why is UCM such a big deal?</h2><p>The old (Disunified) Content Model was great and innovative for the time it was created, but it also makes doing\r\nthings in Joomla! a lot more difficult than they need to be today. By moving to the UCM everything\r\nfrom managing your URLs to creating new kinds of content will be much simpler. </p>\r\n\r\n<h2>Does that mean everything is going to look the same?</h2>\r\n<p>No! In fact when it is fully implemented either in the CMS or your own Joomla! Platform application\r\nyou will be able to create new layouts  and content types more easily than ever. </p>\r\n<h2>Is this an advertisement or are you going to show what it means?</h2>\r\n				 <p>These links show super simple examples that highlight the shared and not shared parts of the CMS data\r\n				 structure. For right now it is all hard coded, but of course that is going to change.</p>\r\n				<ul>\r\n				<li><a href="indexa.php">Article</a></li>\r\n				<li><a href="indexw.php">Weblink</a></li>\r\n				<li><a href="indexc.php">Contact</a></li>\r\n				<li><a href="indexn.php">Newsfeed</a></li>\r\n				<li><a href="indexcat.php">Category</a></li>\r\n				</ul>\r\n				</div>', NULL, 1, 0, 0, '0000-00-00 00:00:00', 42, '0000-00-00 00:00:00', NULL, '', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -554,7 +554,8 @@ INSERT INTO `jos_content_hits` (`content_id`, `hits`, `hit_modified_date`) VALUE
 (1505, 0, NULL),
 (1506, 0, NULL),
 (1507, 0, NULL),
-(1508, 0, NULL);
+(1508, 0, NULL),
+(1509, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -658,7 +659,7 @@ CREATE TABLE IF NOT EXISTS `jos_old_content` (
   `xreference` varchar(50) NOT NULL COMMENT 'A reference to enable linkages to external data sets.',
   PRIMARY KEY (`content_id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=70 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=71 ;
 
 --
 -- Dumping data for table `jos_old_content`
@@ -732,7 +733,8 @@ INSERT INTO `jos_old_content` (`id`, `content_id`, `fulltext`, `mask`, `catid`, 
 (66, 165, '', 0, 65, 'Joomla!', '', 0, 3, '', '', 6, '', '*', ''),
 (67, 168, '', 0, 9, 'Joomla! 1.5', '', 0, 0, '', '', 0, '{"robots":"","author":"","rights":"","xreference":""}', '*', ''),
 (68, 170, '', 0, 25, 'Joomla!', '{"urla":"","urlatext":"","targeta":"","urlb":"","urlbtext":"","targetb":"","urlc":"","urlctext":"","targetc":""}', 0, 1, '', '', 0, '{"robots":"","author":"","rights":"","xreference":""}', '*', ''),
-(69, 171, '', 0, 25, 'Joomla!', '{"urla":"","urlatext":"","targeta":"","urlb":"","urlbtext":"","targetb":"","urlc":"","urlctext":"","targetc":""}', 0, 0, '', '', 0, '{"robots":"","author":"","rights":"","xreference":""}', '*', '');
+(69, 171, '', 0, 25, 'Joomla!', '{"urla":"","urlatext":"","targeta":"","urlb":"","urlbtext":"","targetb":"","urlc":"","urlctext":"","targetc":""}', 0, 0, '', '', 0, '{"robots":"","author":"","rights":"","xreference":""}', '*', ''),
+(70, 1509, '', 0, 0, '', '', 0, 0, '', '', 0, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -754,10 +756,6 @@ CREATE TABLE IF NOT EXISTS `jos_session` (
   KEY `userid` (`userid`),
   KEY `time` (`time`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Dumping data for table `jos_session`
---
 
 -- --------------------------------------------------------
 
