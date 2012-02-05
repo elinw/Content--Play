@@ -74,17 +74,6 @@ class Simple extends JApplicationWeb
 			'</body>'
 		);
 	}
-	/**
-	 * Method to get the template name. This is needed for compatability with JApplication.
-	 *
-	 * @return  string  The theme name.
-	 *
-	 * @since   12.1
-	 */
-	public function getTemplate()
-	{
-		return $this->get('theme');
-	}
 }
 
 // Instantiate the application object, passing the class name to JWeb::getInstance
