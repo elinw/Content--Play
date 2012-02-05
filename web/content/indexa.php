@@ -59,6 +59,7 @@ class Simple extends JApplicationWeb
 			)
 		);
 		$factory  = JContentFactory::getInstance('',$this->dbo,$this);
+		$topnav = $factory->getContent('Navigation')->load(1510);
 		$content = $factory->getContent($this->input->get('type'))->load($this->input->get('content_id'));
 
 		$this->setBody(
@@ -69,7 +70,7 @@ class Simple extends JApplicationWeb
 			</head>
 			<body >
 			<div class="main">
-
+			'. $topnav->body . '
 				<h1>Hello ' . ucfirst($this->input->get('type')) . '!</h1>'.
 				'<div class="common">'.
 
@@ -109,11 +110,7 @@ class Simple extends JApplicationWeb
 						'<dt>Meta Description</dt><dd>'.$content->metadesc.'</dd>'.
 						'<dt>Meta Data</dt><dd>'.'Messy to display'.'</dd>'.
 						'</dl>'.
-					'</div>'.
-					'<div class="bottom">'.
-						'<p>How do you get them to display? All you need to do is put $content->language but name the field you want.</p>'.
-					'</div>'.
-				'</div>'
+					'</div>'
 			);
 		}
 		elseif ($content->type_id == 5)
@@ -131,11 +128,7 @@ class Simple extends JApplicationWeb
 					'<dt>Meta Description</dt><dd>'.$content->metadesc.'</dd>'.
 					'<dt>Meta Data</dt><dd>'.'Messy to display'.'</dd>'.
 					'</dl>'.
-				'</div>'.
-				'<div class="bottom">'.
-					'<p>How do you get them to display? All you need to do is put $content->language but name the field you want.</p>'.
-				'</div>'.
-			'</div>'
+				'</div>'
 			);
 		}
 		elseif ($content->type_id == 4)
@@ -157,11 +150,7 @@ class Simple extends JApplicationWeb
 					'<dt>Meta Data</dt><dd>'.'Messy to display'.'</dd>'.
 					'</dl>'.
 					'<p>Show the link. <a href="'.$content->link.'">'.$content->title.'</a></p>'.
-				'</div>'.
-				'<div class="bottom">'.
-					'<p>How do you get them to display? All you need to do is put $content->language but name the field you want.</p>'.
-				'</div>'.
-			'</div>'
+				'</div>'
 			);
 		}
 		elseif ($content->type_id == 3)
@@ -188,11 +177,7 @@ class Simple extends JApplicationWeb
 					'<dt>Meta Description</dt><dd>'.$content->metadesc.'</dd>'.
 					'<dt>Meta Data</dt><dd>'.'Messy to display'.'</dd>'.
 					'</dl>'.
-				'</div>'.
-				'<div class="bottom">'.
-					'<p>How do you get them to display? All you need to do is put $content->language but name the field you want.</p>'.
-				'</div>'.
-			'</div>'
+				'</div>'
 			);
 		}
 		elseif ($content->type_id == 2)
@@ -210,13 +195,17 @@ class Simple extends JApplicationWeb
 					'<dt>Meta Data</dt><dd>'.'Messy to display'.'</dd>'.
 					'</dl>'.
 					'<p>Oh just do it. <a href="'.$content->url.'">'.$content->title.'</a></p>'.
-				'</div>'.
+				'</div>'
+			);
+		}
+			$this->appendBody(
 				'<div class="bottom">'.
-					'<p>How do you get them to display? All you need to do is put $content->language but name the field you want.</p>'.
+					'<p>How do you get them to display? All you need to do is put <span class = "code">$content->yourfieldname</span> but name the field you want.</p>'.
 				'</div>'.
 			'</div>'
 			);
-		}
+
+
 	}
 	/**
 	 * Method to get the template name. This is needed for compatability with JApplication.

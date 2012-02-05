@@ -8,51 +8,82 @@
  * details.
  */
 
-
-
-
-body
-{
-        background: #fff;
-        color: #000000;
-        font-size: 100.1%;
-        padding: 0px;
-        text-align: left;
-        font-family: verdana;
+body {
+	background: #fff;
+	color: #222028;
+	font-size: 100.1%;
+	padding: 0px;
+	text-align: left;
+	font-family: Verdana;
 }
 
-h1
-{
-        text-align: center;
+h1 {
+	text-align: center;
 }
-h2
-{
+
+h2 {
         text-align: left;
         font-size: 1.1em;
 }
-.main
-{
-width: 660px;
-margin-left:auto;
-margin-right:auto;
-}
-.common
-{
-border-width:1px;
-border-style:solid;
-background:  #E5E5E5;
-padding:10px;
 
+ul.topnav {
+        float: left;
+        width: 100%;
+        font-family: Arial;
+        font-size: .9em;
+        background: #C5C7B6;
+        margin-bottom: 40px;
+		line-height: 200%;
 }
-dl
-{
-	font-size: .8em;
+ul.topnav li{
+        list-style-type:none;
+        display: inline-block;
+        float: left;
+        padding-left: 20px;
 }
-.special
-{
-border-width:1px;
-border-style:solid;
-padding:10px;
+ul.topnav li a {
+
+        display: inline-block;
+        color: #fff;
+        text-decoration: none;
+        font-weight: normal;
+}
+
+ul.topnav li a:hover {
+        background: #4C4C50;
+}
+
+ul.topnav li a:current {
+        background: #4C4C50;
+        color: #fff;
+}
+
+.main {
+        width: 660px;
+        margin-left: auto;
+        margin-right: auto;
+}
+
+.common {
+        border-width: 1px;
+        border-style: solid;
+        background: #E5E5E5;
+        padding: 10px;
+}
+
+dl {
+        font-size: .8em;
+}
+
+.special {
+        border-width: 1px;
+        border-style: solid;
+        padding: 10px;
+}
+ span.code{
+        font-family: Arial;
+        font-size: 11px;
+        clear: both;
 }
 .special.contact
 {

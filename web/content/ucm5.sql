@@ -3,16 +3,15 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Feb 04, 2012 at 10:53 AM
+-- Generation Time: Feb 05, 2012 at 01:44 PM
 -- Server version: 5.2.10
 -- PHP Version: 5.3.6-13ubuntu3.3
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
-
 SET FOREIGN_KEY_CHECKS=0;
 
-T=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
 /*!40101 SET NAMES utf8 */;
@@ -210,7 +209,7 @@ CREATE TABLE IF NOT EXISTS `jos_content` (
   KEY `modified_user_id` (`modified_user_id`),
   KEY `checked_out_user_id` (`checked_out_user_id`),
   KEY `created_user_id` (`created_user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1510 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1512 ;
 
 --
 -- Dumping data for table `jos_content`
@@ -377,7 +376,9 @@ INSERT INTO `jos_content` (`content_id`, `type_id`, `title`, `alias`, `body`, `a
 (1506, 3, 'Apples', 'apples', 'Image Credit: Fievet\r\nRights: Public Domain\r\nSource: http://commons.wikimedia.org/wiki/File:Pommes_vertes.JPG', 1, 1, 0, 0, '2011-01-01 00:00:01', 0, '2011-01-01 00:00:01', 42, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, '{"show_contact_category":"","show_contact_list":"","presentation_style":"plain","show_name":"","show_position":"","show_email":"","show_street_address":"","show_suburb":"","show_state":"","show_postcode":"","show_country":"","show_telephone":"","show_mobile":"","show_fax":"","show_webpage":"","show_misc":"","show_image":"","allow_vcard":"","show_articles":"","show_profile":"","show_links":"1","linka_name":"Wikipedia: Apples English","linka":"http:\\/\\/en.wikipedia.org\\/wiki\\/Apple","linkb_name":"Wikipedia: Manzana Espa\\u00f1ol ","linkb":"http:\\/\\/es.wikipedia.org\\/wiki\\/Manzana","linkc_name":"Wikipedia: \\u82f9\\u679c \\u4e2d\\u6587","linkc":"http:\\/\\/zh.wikipedia.org\\/zh\\/\\u82f9\\u679c","linkd_name":"Wikipedia: Tofaa Kiswahili","linkd":"http:\\/\\/sw.wikipedia.org\\/wiki\\/Tofaa","linke_name":"","linke":"","contact_layout":"beez5:encyclopedia"}', '', ''),
 (1507, 3, 'Tamarind', 'tamarind', 'Image Credit: Franz Eugen Köhler, Köhler''s Medizinal-Pflanzen \r\nRights: Public Domain\r\nSource:http://commons.wikimedia.org/wiki/File:Koeh-134.jpg', 1, 1, 0, 0, '2011-01-01 00:00:01', 0, '2011-01-01 00:00:01', 42, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, '{"show_contact_category":"","show_contact_list":"","presentation_style":"plain","show_name":"","show_position":"","show_email":"","show_street_address":"","show_suburb":"","show_state":"","show_postcode":"","show_country":"","show_telephone":"","show_mobile":"","show_fax":"","show_webpage":"","show_misc":"","show_image":"","allow_vcard":"","show_articles":"","show_profile":"","show_links":"1","linka_name":"Wikipedia: Tamarind English","linka":"http:\\/\\/en.wikipedia.org\\/wiki\\/Tamarind","linkb_name":"Wikipedia: \\u09a4\\u09c7\\u0981\\u09a4\\u09c1\\u09b2  \\u09ac\\u09be\\u0982\\u09b2\\u09be  ","linkb":"http:\\/\\/bn.wikipedia.org\\/wiki\\/\\u09a4\\u09c7\\u0981\\u09a4\\u09c1\\u09b2 ","linkc_name":"Wikipedia: Tamarinier Fran\\u00e7ais","linkc":"http:\\/\\/fr.wikipedia.org\\/wiki\\/Tamarinier","linkd_name":"Wikipedia:Tamaline lea faka-Tonga","linkd":"http:\\/\\/to.wikipedia.org\\/wiki\\/Tamaline","linke_name":"","linke":"","contact_layout":"beez5:encyclopedia"}', '', ''),
 (1508, 3, 'Shop Address', 'shop-address', '', 1, 1, 0, 0, '2011-01-01 00:00:01', 0, '2011-01-01 00:00:01', 42, '', 0, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, '{"show_contact_category":"","show_contact_list":"","presentation_style":"","show_name":"","show_position":"","show_email":"","show_street_address":"","show_suburb":"","show_state":"","show_postcode":"","show_country":"","show_telephone":"","show_mobile":"","show_fax":"","show_webpage":"","show_misc":"","show_image":"","allow_vcard":"","show_articles":"","show_profile":"","show_links":"","linka_name":"","linka":"","linkb_name":"","linkb":"","linkc_name":"","linkc":"","linkd_name":"","linkd":"","linke_name":"","linke":"","show_email_form":"","show_email_copy":"","banned_email":"","banned_subject":"","banned_text":"","validate_session":"","custom_reply":"","redirect":""}', '', ''),
-(1509, 6, 'Hello Unfied Content Model!', '', '<h2>What is the unified content model? </h2>\r\n<p>In the Joomla! CMS we have always thought of Articles, Weblinks, Newsfeeds, Contacts and so on\r\n				as fundamentally different things. In the UCM, we think about all of those as kinds of content and take\r\n				advantage of the fact that they have a lot of things in common with each other.</p>\r\n<h2>Why is UCM such a big deal?</h2><p>The old (Disunified) Content Model was great and innovative for the time it was created, but it also makes doing\r\nthings in Joomla! a lot more difficult than they need to be today. By moving to the UCM everything\r\nfrom managing your URLs to creating new kinds of content will be much simpler. </p>\r\n\r\n<h2>Does that mean everything is going to look the same?</h2>\r\n<p>No! In fact when it is fully implemented either in the CMS or your own Joomla! Platform application\r\nyou will be able to create new layouts  and content types more easily than ever. </p>\r\n<h2>Is this an advertisement or are you going to show what it means?</h2>\r\n				 <p>These links show super simple examples that highlight the shared and not shared parts of the CMS data\r\n				 structure. For right now it is all hard coded, but of course that is going to change.</p>\r\n				<ul>\r\n				<li><a href="indexa.php?type=article&content_id=104">Article</a></li>\r\n				<li><a href="indexa.php?type=weblinks&content_id=509">Weblink</a></li>\r\n				<li><a href="indexa.php?type=contacts&content_id=1501">Contact</a></li>\r\n				<li><a href="indexa.php?type=newsfeeds&content_id=1301">Newsfeed</a></li>\r\n				<li><a href="indexa.php?type=categories&content_id=55">Category</a></li>\r\n				</ul>\r\n				</div>', NULL, 1, 0, 0, '0000-00-00 00:00:00', 42, '0000-00-00 00:00:00', NULL, '', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, '', '', '');
+(1509, 6, 'Hello Unified Content Model!', '', '<h2>What is the unified content model? </h2>\r\n<p>In the Joomla! CMS we have always thought of Articles, Weblinks, Newsfeeds, Contacts and so on\r\n				as fundamentally different things. In the UCM, we think about all of those as kinds of content and take\r\n				advantage of the fact that they have a lot of things in common with each other.</p>\r\n<h2>Why is UCM such a big deal?</h2><p>The old (Disunified) Content Model was great and innovative for the time it was created, but it also makes doing\r\nthings in Joomla! a lot more difficult than they need to be today. By moving to the UCM everything\r\nfrom managing your URLs to creating new kinds of content will be much simpler. </p>\r\n\r\n<h2>Does that mean everything is going to look the same?</h2>\r\n<p>No! In fact when it is fully implemented either in the CMS or your own Joomla! Platform application\r\nyou will be able to create new layouts  and content types more easily than ever. </p>\r\n<h2>Is this an advertisement or are you going to show what it means?</h2>\r\n				 <p>These links show super simple examples that highlight the shared and not shared parts of the CMS data\r\n				 structure. For right now it is all hard coded, but of course that is going to change.</p>\r\n				<ul>\r\n				<li><a href="indexa.php?type=article&content_id=104">Article</a></li>\r\n				<li><a href="indexa.php?type=weblinks&content_id=509">Weblink</a></li>\r\n				<li><a href="indexa.php?type=contacts&content_id=1501">Contact</a></li>\r\n				<li><a href="indexa.php?type=newsfeeds&content_id=1301">Newsfeed</a></li>\r\n				<li><a href="indexa.php?type=categories&content_id=55">Category</a></li>\r\n				</ul>\r\n				</div>', NULL, 1, 0, 0, '0000-00-00 00:00:00', 42, '0000-00-00 00:00:00', NULL, '', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, '', '', ''),
+(1510, 7, 'Top Menu', 'topmenu', '<ul class="topnav"><li><a href="index.php">Home</a></li><li><a href="index.php?type=article&content_id=1511">Learn More</a></li><li><a href="index.php?type=article&content_id=102">Australian Parks</a></li><li><a href="list.php">A List</a></li></ul>', NULL, 1, 0, 0, '0000-00-00 00:00:00', NULL, '0000-00-00 00:00:00', NULL, '', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, '', '', ''),
+(1511, 6, 'About UCM', 'about-ucm', '<p>Some of the places you go go learn more about the proposed UCM are:</p>\r\n<ul>\r\n<li><a href="https://groups.google.com/d/topic/joomla-dev-platform/sqdZ0B_WCiQ/discussion" >The thread on the Joomla! Platform list</a></li>\r\n<li><a href="https://github.com/eBaySF/joomla-platform/blob/content">The repository with the proposed code</a></li>\r\n<li><a href="https://github.com/eBaySF/joomla-platform/blob/content/docs/manual/en-US/chapters/jcontent.xml">The manual</a></li>\r\n</ul>\r\n<p>If you would like to know more about how I made this site, you can find the code and database behind it <a href="https://github.com/elinw/Content--Play/tree/master/web/content">github</a>.</p>\r\n<p>This is a very simple site in that it does not use MVC at all. The main index.php file provides a basic entry point. Indexa.php provides the specialized layout for the pages showing the common and special fields. The "template" consists of just one CSS file.</p>', NULL, 1, 0, 0, '0000-00-00 00:00:00', NULL, '0000-00-00 00:00:00', NULL, '', NULL, '0000-00-00 00:00:00', '0000-00-00 00:00:00', 0, 0, '', '', '');
 
 -- --------------------------------------------------------
 
@@ -556,7 +557,9 @@ INSERT INTO `jos_content_hits` (`content_id`, `hits`, `hit_modified_date`) VALUE
 (1506, 0, NULL),
 (1507, 0, NULL),
 (1508, 0, NULL),
-(1509, 0, NULL);
+(1509, 0, NULL),
+(1510, 0, NULL),
+(1511, 0, NULL);
 
 -- --------------------------------------------------------
 
@@ -586,7 +589,7 @@ CREATE TABLE IF NOT EXISTS `jos_content_types` (
   `table` varchar(255) NOT NULL DEFAULT '',
   `rules` text NOT NULL,
   PRIMARY KEY (`type_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=8 ;
 
 --
 -- Dumping data for table `jos_content_types`
@@ -598,7 +601,27 @@ INSERT INTO `jos_content_types` (`type_id`, `title`, `alias`, `table`, `rules`) 
 (3, 'Contacts', 'contacts', '#__contact_details', '{"core.admin":{"7":1},"core.manage":{"6":1},"core.create":[],"core.delete":[],"core.edit":[],"core.edit.state":[]}'),
 (4, 'Newsfeeds', 'newsfeeds', '#__newsfeeds', '{"core.admin":{"7":1},"core.manage":{"6":1},"core.create":[],"core.delete":[],"core.edit":[],"core.edit.state":[]}'),
 (5, 'Categories', 'categories', '#__categories', ''),
-(6, 'Article', 'article', '#__old_content', '{"core.admin":{"7":1},"core.manage":{"6":1},"core.create":{"3":1},"core.delete":[],"core.edit":{"4":1},"core.edit.state":{"5":1},"core.edit.own":[]}');
+(6, 'Article', 'article', '#__old_content', '{"core.admin":{"7":1},"core.manage":{"6":1},"core.create":{"3":1},"core.delete":[],"core.edit":{"4":1},"core.edit.state":{"5":1},"core.edit.own":[]}'),
+(7, 'Navigation', 'navigation', '#__navigation', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `jos_navigation`
+--
+
+CREATE TABLE IF NOT EXISTS `jos_navigation` (
+  `id` int(11) NOT NULL,
+  `content_id` int(11) NOT NULL,
+  `config` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `jos_navigation`
+--
+
+INSERT INTO `jos_navigation` (`id`, `content_id`, `config`) VALUES
+(1, 1510, 0);
 
 -- --------------------------------------------------------
 
@@ -660,7 +683,7 @@ CREATE TABLE IF NOT EXISTS `jos_old_content` (
   `xreference` varchar(50) NOT NULL COMMENT 'A reference to enable linkages to external data sets.',
   PRIMARY KEY (`content_id`),
   KEY `id` (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=71 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=72 ;
 
 --
 -- Dumping data for table `jos_old_content`
@@ -735,7 +758,8 @@ INSERT INTO `jos_old_content` (`id`, `content_id`, `fulltext`, `mask`, `catid`, 
 (67, 168, '', 0, 9, 'Joomla! 1.5', '', 0, 0, '', '', 0, '{"robots":"","author":"","rights":"","xreference":""}', '*', ''),
 (68, 170, '', 0, 25, 'Joomla!', '{"urla":"","urlatext":"","targeta":"","urlb":"","urlbtext":"","targetb":"","urlc":"","urlctext":"","targetc":""}', 0, 1, '', '', 0, '{"robots":"","author":"","rights":"","xreference":""}', '*', ''),
 (69, 171, '', 0, 25, 'Joomla!', '{"urla":"","urlatext":"","targeta":"","urlb":"","urlbtext":"","targetb":"","urlc":"","urlctext":"","targetc":""}', 0, 0, '', '', 0, '{"robots":"","author":"","rights":"","xreference":""}', '*', ''),
-(70, 1509, '', 0, 0, '', '', 0, 0, '', '', 0, '', '', '');
+(70, 1509, '', 0, 0, '', '', 0, 0, '', '', 0, '', '', ''),
+(71, 1511, '', 0, 0, '', '', 0, 0, '', '', 0, '', '', '');
 
 -- --------------------------------------------------------
 
