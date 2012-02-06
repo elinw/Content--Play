@@ -62,28 +62,48 @@ class Simple extends JApplicationWeb
 
 		$factory  = JContentFactory::getInstance('',$this->dbo,$this);
 		$topnav = $factory->getContent('Navigation')->load(1510);
+			$content = $factory->getContent('Gallery')->load($this->input->get('content_id'));
 	$this->setBody(
 			'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
 		);
 		$this->appendBody('<html>
 				<head>
 					<link rel="stylesheet" href="templates/simplecontent/css/template.css" type="text/css" />
-					<title>A list of things</title>
+					<title>A Gallery</title>
 				</head>
 				<body >')
 			->appendBody('<div class="main">')
 			->appendBody( $topnav->body )
-			->appendBody('<dl>');
-		$type = 'Weblinks';
-		$list = array(501,502,503,504,505,506,507,508,509);
-		$this->appendBody('<h1>A list of '. $type . '</h1>');
-		foreach ($list as $i )
+			->appendBody('<h1>'. $content->title . '</h1>')
+			->appendBody($content->body)
+
+			->appendBody('<div class="gallery-col-1">');
+
+		$list1 = array(162,163,132,107);
+
+		foreach ($list1 as $i )
 		{
-		$content = $factory->getContent($type)->load($i);
-					$this->appendBody('<dt><a href=/"'.$content->url.'/">'.$content->title.' </a></dt>');
-					$this->appendBody('<dd>'.$content->body.'</dd>');
+			$item = $factory->getContent('Image')->load($i);
+			$images = json_decode($item->media);
+			$this->appendBody('<div class="image"><a href="image.php?type=image&content_id='.$i.'">
+			<img src="'.$images->image_intro.'" alt="'.$images->image_intro_alt . '"></a></div><div class="clear"></div>');
 		}
-		$this->appendBody('</dl>');
+		$this->appendBody('</div>');
+
+		$this->appendBody('<div class="gallery-col-2">');
+
+		$list2 = array(155,131,141,123);
+
+		foreach ($list2 as $i )
+		{
+			$item = $factory->getContent('Image')->load($i);
+			$images = json_decode($item->media);
+			$this->appendBody('<div class="image"><a href="image.php?type=image&content_id='.$i.'">
+			<img src="'.$images->image_intro.'" alt="'.$images->image_intro_alt . '"></a></div><div class="clear"></div>');
+		}
+		$this->appendBody('</div>');
+
+
 		$this->appendBody('</body></html>');
 	}
 }

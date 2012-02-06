@@ -58,34 +58,33 @@ class Simple extends JApplicationWeb
 				'prefix' => $this->get('dbprefix'),
 			)
 		);
-
-
 		$factory  = JContentFactory::getInstance('',$this->dbo,$this);
 		$topnav = $factory->getContent('Navigation')->load(1510);
-	$this->setBody(
+
+			$content = $factory->getContent('Image')->load($this->input->get('content_id'));
+
+		$this->setBody(
 			'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
 		);
+
 		$this->appendBody('<html>
 				<head>
 					<link rel="stylesheet" href="templates/simplecontent/css/template.css" type="text/css" />
-					<title>A list of things</title>
+					<title>Hello UCM! ' . $content->title  . '</title>
 				</head>
 				<body >')
 			->appendBody('<div class="main">')
+
 			->appendBody( $topnav->body )
-			->appendBody('<dl>');
-		$type = 'Weblinks';
-		$list = array(501,502,503,504,505,506,507,508,509);
-		$this->appendBody('<h1>A list of '. $type . '</h1>');
-		foreach ($list as $i )
-		{
-		$content = $factory->getContent($type)->load($i);
-					$this->appendBody('<dt><a href=/"'.$content->url.'/">'.$content->title.' </a></dt>');
-					$this->appendBody('<dd>'.$content->body.'</dd>');
-		}
-		$this->appendBody('</dl>');
-		$this->appendBody('</body></html>');
+			->appendBody('<h1>'. $content->title . '</h1>');
+			$images = json_decode($content->media);
+			$this->appendBody('<div class="image-fulltext">
+			<img src="'.$images->image_fulltext.'" alt="'.$images->image_fulltext_alt . '"></div><div class="clear"></div>');
+
+			$this->appendBody($images->image_fulltext_caption);
+			$this->appendBody('</body></html>');
 	}
+
 }
 
 // Instantiate the application object, passing the class name to JWeb::getInstance
