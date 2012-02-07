@@ -72,13 +72,7 @@ class DbTableRead extends JWeb
 	 */
 	protected function doExecute()
 	{
-		//
-		// The body of the response is stored internally as an array.
-		// A call to setBody will initialise (or reset) the body of the repsonse.
-		//
-
-
-		// Get the quey builder class from the database.
+		// Get the query builder class from the database.
 		$query = $this->dbo->getQuery(true);
 
 		// Set up a query to select items in the '' table.

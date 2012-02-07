@@ -58,24 +58,41 @@ class Simple extends JApplicationWeb
 				'prefix' => $this->get('dbprefix'),
 			)
 		);
-		$factory  = JContentFactory::getInstance('',$this->dbo,$this);
-		$topnav = $factory->getContent('Navigation')->load(1510);
-		if (!$this->input->get('content_id'))
+		try
 		{
-		$content = $factory->getContent('Article')->load(1509);
+			// Later we'll have some way to set this.
+			$default = 1509;
+			$defaulttype = 'Article';
+			$type= $this->input->get('type');
+			$factory  = JContentFactory::getInstance('',$this->dbo,$this);
+			// This navigation is going to be loaded for all pages.
+			$topnav = $factory->getContent('Navigation')->load(1510);
+			if (!$this->input->get('content_id'))
+			{
+			$content = $factory->getContent($defaulttype)->load($default);
+			}
+			else
+			{
+				$content = $factory->getContent($type)->load($this->input->get('content_id'));
+			}
 		}
-		else
+		catch (RuntimeException $e)
 		{
-			$content = $factory->getContent($this->input->get('type'))->load($this->input->get('content_id'));
+			// handle error
 		}
 		$this->setBody(
 			'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
 		);
+		$typefile = dirname(__FILE__) .'/'.$type .'.php';
+		if (file_exists($typefile))
+			include_once ($typefile);
+		else
+		{
 
-		$this->appendBody('<html>
+			$this->appendBody('<html>
 				<head>
 					<link rel="stylesheet" href="templates/simplecontent/css/template.css" type="text/css" />
-					<title>Hello UCM! ' . $content->title  . '</title>
+					<title>Hello UCM! </title>
 				</head>
 				<body >')
 			->appendBody('<div class="main">')
@@ -84,6 +101,7 @@ class Simple extends JApplicationWeb
 			->appendBody('<h1>'. $content->title . '</h1>')
 			->appendBody($content->body)
 			->appendBody('</body></html>');
+		}
 	}
 
 }

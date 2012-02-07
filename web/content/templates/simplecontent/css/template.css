@@ -81,7 +81,7 @@ dl {
         padding: 10px;
 }
  span.code{
-        font-family: Arial;
+        font-family: Monospace
         font-size: 11px;
         clear: both;
 }
