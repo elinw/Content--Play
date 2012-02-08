@@ -80,7 +80,7 @@ class Simple extends JApplicationWeb
 		foreach ($list as $i )
 		{
 		$content = $factory->getContent($type)->load($i);
-					$this->appendBody('<dt><a href=/"'.$content->url.'/">'.$content->title.' </a></dt>');
+					$this->appendBody('<dt><a href="http://'.$content->url.'/">'.$content->title.' </a></dt>');
 					$this->appendBody('<dd>'.$content->body.'</dd>');
 		}
 		$this->appendBody('</dl>');
