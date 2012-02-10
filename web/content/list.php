@@ -9,60 +9,77 @@
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
-// We are a valid Joomla entry point.
-define('_JEXEC', 1);
-
-// Setup the base path related constant.
-define('JPATH_BASE', dirname(__FILE__));
-define('JPATH_SITE', JPATH_BASE);
-define('JPATH_THEMES', JPATH_BASE.'/themes');
-define('JPATH_CACHE', JPATH_BASE.'/cache');
-
-// Increase error reporting to that any errors are displayed.
-// Note, you would not use these settings in production.
-error_reporting(E_ALL);
-ini_set('display_errors', true);
-
-// Bootstrap the application.
-require dirname(dirname(dirname(__FILE__))).'/bootstrap.php';
-
-JLoader::register('JContent', JPATH_BASE . '/joomla/content/content');
-/**
-* An example JContent application class.
-*
-* This is an example of using JContent to render a simple page.
-*
-* @package  Joomla.Examples
-* @since    11.3
-*/
-class Simple extends JApplicationWeb
-{
-	/**
-	 * Overrides the parent doExecute method to run the web application.
-	 *
-	 * This method should include your custom code that runs the application.
-	 *
-	 * @return  void
-	 *
-	 * @since   11.3
+	/* This is for making on the fly lists of items.
+	 * Currently the query supports type, category and featured selectors.
+	 * It should eventually also allow created_user_id, modified_user_id and state.
+	 * Also it needs limit/pagination.
 	 */
-	protected function doExecute()
-	{
-		$this->dbo = JDatabase::getInstance(
-			array(
-				'driver' => $this->get('dbtype'),
-				'host' => $this->get('host'),
-				'user' => $this->get('user'),
-				'password' => $this->get('pass'),
-				'database' => $this->get('name'),
-				'prefix' => $this->get('dbprefix'),
-			)
-		);
+
+		jimport('joomla.database.database');
 
 
-		$factory  = JContentFactory::getInstance('',$this->dbo,$this);
+		/* Get the list details from the request
+		 * This can include type, category and featured alone or in combination
+		 * form: index.php?type=list&of=weblinks&category=12&featured
+		 */
+		try
+		{
+		if (($this->input->get('of')))
+		{
+			$typeof = $this->input->get('of');
+		}
+		else
+		{
+			$typeof = null;
+		}
+		if ($this->input->get('featured'))
+		{
+			$featured = true;
+		}
+		else
+		{
+			$featured = false;
+		}
+		if ($this->input->get('category'))
+		{
+			$catid =  $this->input->get('category') ;
+		}
+		else
+		{
+			$catid = null;
+		}
+
+		$items = $this->dbo;
+		$selectlist  = $items->getQuery(true);
+		$selectlist->select('content_id');
+		$selectlist->from('#__content as c');
+		if ($typeof)
+		{
+		$selectlist->from('#__content_types as t');
+			$selectlist->where('c.type_id = t.type_id AND t.alias =' . $selectlist->quote($typeof));
+		}
+		if ($featured)
+		{
+			$selectlist->where('featured = 1');
+		}
+		if ($catid)
+		{
+			$selectlist->where('catid = ' . $select->quote($catid));
+		}
+		$items->setQuery($selectlist);
+
+		$list = $items->loadObjectList();
+//var_dump($list[0]->content_id);die;
+		$factory  = JContentFactory::getInstance('', $this->dbo, $this);
 		$topnav = $factory->getContent('Navigation')->load(1510);
-	$this->setBody(
+		}
+		catch (RuntimeException $e)
+		{
+			// handle error
+		}
+
+
+		$this->setBody(
 			'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
 		);
 		$this->appendBody('<html>
@@ -74,20 +91,24 @@ class Simple extends JApplicationWeb
 			->appendBody('<div class="main">')
 			->appendBody( $topnav->body )
 			->appendBody('<dl>');
-		$type = 'Weblinks';
-		$list = array(501,502,503,504,505,506,507,508,509);
-		$this->appendBody('<h1>A list of '. $type . '</h1>');
-		foreach ($list as $i )
+
+		$this->appendBody('<h1>A list of '. $typeof . '</h1>');
+		foreach ($list as $item )
 		{
-		$content = $factory->getContent($type)->load($i);
-					$this->appendBody('<dt><a href="http://'.$content->url.'/">'.$content->title.' </a></dt>');
-					$this->appendBody('<dd>'.$content->body.'</dd>');
+		$content = $factory->getContent($typeof)->load($item->content_id);
+					$this->appendBody('<dt>');
+					if ($typeof == 'weblinks')
+					{
+						$this->appendBody('<a href="'.$content->url.'">');
+					}
+					$this->appendBody($content->title);
+					if ($typeof == 'weblinks')
+					{
+						$this->appendBody('</a></dt>');
+					}
+					$this->appendBody('<dt>');
+					$this->appendBody('<dd>' . $content->body . '</dd>');
 		}
 		$this->appendBody('</dl>');
 		$this->appendBody('</body></html>');
-	}
-}
 
-// Instantiate the application object, passing the class name to JWeb::getInstance
-// and use chaining to execute the application.
-JWeb::getInstance('Simple')->execute();

@@ -30,10 +30,11 @@
 			|| (isset($content->config->show_hits) && $content->config->show_hits)
 			|| (isset($content->config->show_likes) && $content->config->show_likes)
 			)
-			{
-				include_once(dirname(__FILE__) .'/contentinformationblock.php');
-			}
-			if (isset($content->config->show_intro) || $content->config->show_intro !== false)
+				{
+					include_once(dirname(__FILE__) .'/contentinformationblock.php');
+				}
+			if ((isset($content->config->show_intro) && ($content->config->show_intro !== false))
+				|| !($content->fulltext))
 			{
 				// We'll want events later
 				// echo $this->item->event->afterDisplayTitle;
@@ -41,7 +42,7 @@
 			}
 			// We'll want events later
 			//echo $this->item->event->beforeDisplayContent;
-						if ($images)
+			if ($images)
 			{
 				$this->appendBody('<div class="image-fulltext">
 				<img src="'.$images->image_fulltext.'" alt="'.$images->image_fulltext_alt . '"></div><div class="clear"></div>');
