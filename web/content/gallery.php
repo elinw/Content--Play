@@ -9,19 +9,12 @@
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
-		$this->appendBody('<html>
-				<head>
-					<link rel="stylesheet" href="templates/simplecontent/css/template.css" type="text/css" />
-					<title>A Gallery</title>
-				</head>
-				<body >')
-			->appendBody('<div class="main">')
-			->appendBody( $topnav->body )
-			->appendBody('<h1>'. $content->title . '</h1>')
+
+			$this->appendBody('<h1>'. $content->title . '</h1>')
 			->appendBody($content->body)
 
 			->appendBody('<div class="gallery-col-1">');
-
+		// An item parameter will let you select number of columns.
 		// This array should come from the item parameters
 		$list1 = array(162,163,132,107);
 

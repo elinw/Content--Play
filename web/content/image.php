@@ -10,18 +10,10 @@
  */
 
 
-		$this->appendBody('<html>
-				<head>
-					<link rel="stylesheet" href="templates/simplecontent/css/template.css" type="text/css" />
-					<title>Hello UCM! ' . $content->title  . '</title>
-				</head>
-				<body >')
-			->appendBody('<div class="main">')
-			->appendBody( $topnav->body )
-			->appendBody('<h1>'. $content->title . '</h1>');
+			$this->appendBody('<h1>'. $content->title . '</h1>');
 			$images = json_decode($content->media);
 			$this->appendBody('<div class="image-fulltext">
-			<img src="'.$images->image_fulltext.'" alt="'.$images->image_fulltext_alt . '"></div><div class="clear"></div>');
+			<img src="'. $images->image_fulltext .'" alt="'. $images->image_fulltext_alt . '"></div><div class="clear"></div>');
 
 			$this->appendBody($images->image_fulltext_caption);
 			$this->appendBody('<div class="goback"></div><a href="javascript:history.go(-1)">Go Back</a></div>');

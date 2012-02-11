@@ -12,15 +12,7 @@
 		//Get the menu
 		$bottomnav = $factory->getContent('Navigation')->load(1516);
 
-		$this->appendBody('<html>
-				<head>
-					<link rel="stylesheet" href="templates/simplecontent/css/template.css" type="text/css" />
-					<title> ' . $content->title  . '</title>
-				</head>
-				<body >')
-			->appendBody('<div class="main">')
 
-			->appendBody( $topnav->body );
 			$this->appendBody($bottomnav->body);
 
 			$this->appendBody('<h1>'. $content->title . '</h1>');

@@ -10,15 +10,8 @@
  */
 
 
-		$this->appendBody('<html>
-				<head>
-					<link rel="stylesheet" href="templates/simplecontent/css/template.css" type="text/css" />
-					<title>Hello UCM! ' . $content->title  . '</title>
-				</head>
-				<body >')
-			->appendBody('<div class="main">')
-			->appendBody( $topnav->body )
-			->appendBody('<h1>'. $content->title . '</h1>');
+
+			$this->appendBody('<h1>'. $content->title . '</h1>');
 
 			$images = json_decode($content->media);
 			// Article information block

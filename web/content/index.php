@@ -58,6 +58,7 @@ class Simple extends JApplicationWeb
 				'prefix' => $this->get('dbprefix'),
 			)
 		);
+
 		try
 		{
 			// Later we'll have some way to set this.
@@ -67,6 +68,8 @@ class Simple extends JApplicationWeb
 			$factory  = JContentFactory::getInstance('',$this->dbo,$this);
 			// This navigation is going to be loaded for all pages.
 			$topnav = $factory->getContent('Navigation')->load(1510);
+			$sidenav = $factory->getContent('Navigation')->load(1518);
+
 			if (!$this->input->get('content_id'))
 			{
 			$content = $factory->getContent($defaulttype)->load($default);
@@ -74,6 +77,10 @@ class Simple extends JApplicationWeb
 			else
 			{
 				$content = $factory->getContent($type)->load($this->input->get('content_id'));
+			}
+			if (!isset($content))
+			{
+				$content = $factory->getContent($defaulttype)->load($default);
 			}
 		}
 		catch (RuntimeException $e)
@@ -83,25 +90,43 @@ class Simple extends JApplicationWeb
 		$this->setBody(
 			'<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">'
 		);
-		$typefile = dirname(__FILE__) .'/'.$type .'.php';
-		if (file_exists($typefile))
-			include_once ($typefile);
-		else
-		{
-
-			$this->appendBody('<html>
+		$this->appendBody('<html>
 				<head>
 					<link rel="stylesheet" href="templates/simplecontent/css/template.css" type="text/css" />
-					<title>Hello UCM! </title>
+					<link rel="stylesheet" href="templates/simplecontent/css/bootstrap/css/bootstrap.css" type="text/css" />
+					<title>Hello UCM! ' . $content->title  . '</title>
 				</head>
-				<body >')
-			->appendBody('<div class="main">')
+				<body >');
+				$this->appendBody(
+					'<div class="navbar navbar span10 offset2">
+					<div class="navbar-inner">
+					<div class="container">');
+						$this->appendBody( $topnav->body );
+					$this->appendBody('</div></div></div>');
+					$this->appendBody('<div class="clear"></div>');
+        $this->appendBody('  <div class="container-fluid">');
+			$this->appendBody('<div class="span2" >');
+			$this->appendBody('<div id="page-nav" class="well sidebar-nav">');
+ 			$this->appendBody( $sidenav->body );
+			$this->appendBody('</div></div>');
+			$this->appendBody('<div class="span8">');
 
-			->appendBody( $topnav->body )
-			->appendBody('<h1>'. $content->title . '</h1>')
-			->appendBody($content->body)
-			->appendBody('</body></html>');
+
+		$typefile = dirname(__FILE__) .'/'.$type .'.php';
+		if (file_exists($typefile)){
+			include_once ($typefile);
+			$this->appendBody('</div>');
 		}
+		else
+		{
+			$this->appendBody('<h1>'. $content->title . '</h1>')
+			->appendBody($content->body);
+			$this->appendBody('</div>');
+		}
+			$this->appendBody('<div class="span2"></div>');
+			$this->appendBody('</div >')
+			->appendBody('</div ></div >')
+			->appendBody('</body></html>');
 	}
 
 }

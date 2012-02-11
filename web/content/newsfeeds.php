@@ -47,15 +47,7 @@
 			$newsfeed->items = array_reverse($newsfeed->items);
 		}
 
-		$this->appendBody('<html>
-				<head>
-					<link rel="stylesheet" href="templates/simplecontent/css/template.css" type="text/css" />
-					<title>Hello UCM! ' . $content->title  . '</title>
-				</head>
-				<body >');
-		$this->appendBody('<div class="main">');
-		$this->appendBody( $topnav->body );
-
+		$this->appendBody('<h1>'. $content->title . '</h1>');
 		$this->appendBody('<ol>');
 
 		foreach ($newsfeed->items as $item)
