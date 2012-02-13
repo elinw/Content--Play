@@ -50,7 +50,7 @@ final class JConfig
 	 * @var    string
 	 * @since  11.3
 	 */
-	public $pass = 'password';
+	public $password = 'password';
 
 	/**
 	 * The database name.
@@ -58,7 +58,7 @@ final class JConfig
 	 * @var    string
 	 * @since  11.3
 	 */
-	public $name = 'ucm5';
+	public $db = 'ucm5';
 
 	/**
 	 * The database table prefix, if necessary.
@@ -67,4 +67,59 @@ final class JConfig
 	 * @since  11.3
 	 */
 	public $dbprefix = 'jos_';
+
+	/**
+	 * The session lifetime.
+	 *
+	 * @var    string
+	 * @since  11.3
+	 */
+
+	public $lifetime = '15';
+
+	/**
+	 * The session handler.
+	 *
+	 * @var    string
+	 * @since  11.3
+	 */
+	public $session_handler = 'database';
+	/**
+	 * The cache handler.
+	 *
+	 * @var    string
+	 * @since  11.3
+	 */
+	public $cache_handler = 'file';
+	/**
+	 * The cache time.
+	 *
+	 * @var    string
+	 * @since  11.3
+	 */
+	public $cachetime = '5';
+
+	/**
+	 * The root user.
+	 * You  may want to use this until we get authentication in the app
+	 *
+	 * @var    string
+	 * @since  11.3
+	 */
+	/**	public $root_user='';*/
+	/**
+	 * The default content_id.
+	 *
+	 * @var    string
+	 * @since  11.3
+	 */
+	public	$default = 1509;
+	/**
+	 * The default content type.
+	 *
+	 * @var    string
+	 * @since  11.3
+	 */
+
+	public	$defaulttype = 'Article';
 }

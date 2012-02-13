@@ -41,38 +41,32 @@ class Simple extends JApplicationWeb
 	 * Overrides the parent doExecute method to run the web application.
 	 *
 	 * This method should include your custom code that runs the application.
-	 *
+	 *y
 	 * @return  void
 	 *
 	 * @since   11.3
 	 */
 	protected function doExecute()
-	{
-		$this->dbo = JDatabase::getInstance(
-			array(
-				'driver' => $this->get('dbtype'),
-				'host' => $this->get('host'),
-				'user' => $this->get('user'),
-				'password' => $this->get('pass'),
-				'database' => $this->get('name'),
-				'prefix' => $this->get('dbprefix'),
-			)
-		);
+	{;
 
+		$config = JFactory::getConfig();
+		$this->dbo = JFactory::getDbo();
+		$this->session = JFactory::getSession();
+		JFactory::$application = $this;
 		try
 		{
-			// Later we'll have some way to set this.
-			$default = 1509;
-			$defaulttype = 'Article';
+			// Storing the default in the configuratin for now.
+			$default = $config->get('default');
+			$defaulttype = $config->get('defaulttype');
 			$type= $this->input->get('type');
-			$factory  = JContentFactory::getInstance('',$this->dbo,$this);
+			$factory  = JContentFactory::getInstance();
 			// This navigation is going to be loaded for all pages.
 			$topnav = $factory->getContent('Navigation')->load(1510);
 			$sidenav = $factory->getContent('Navigation')->load(1518);
 
 			if (!$this->input->get('content_id'))
 			{
-			$content = $factory->getContent($defaulttype)->load($default);
+				$content = $factory->getContent($defaulttype)->load($default);
 			}
 			else
 			{
@@ -104,7 +98,7 @@ class Simple extends JApplicationWeb
 						$this->appendBody( $topnav->body );
 					$this->appendBody('</div></div></div>');
 					$this->appendBody('<div class="clear"></div>');
-        $this->appendBody('  <div class="container-fluid">');
+			$this->appendBody('<div class="container-fluid">');
 			$this->appendBody('<div class="span2" >');
 			$this->appendBody('<div id="page-nav" class="well sidebar-nav">');
  			$this->appendBody( $sidenav->body );
@@ -131,6 +125,6 @@ class Simple extends JApplicationWeb
 
 }
 
-// Instantiate the application object, passing the class name to JWeb::getInstance
+// Instantiate the application object, passing the class name to JApplicationWeb::getInstance
 // and use chaining to execute the application.
-JWeb::getInstance('Simple')->execute();
+JApplicationWeb::getInstance('Simple')->execute();
