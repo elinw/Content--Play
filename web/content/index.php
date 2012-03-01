@@ -95,22 +95,23 @@ class Simple extends JApplicationWeb
 					'<div class="navbar navbar span10 offset2">
 					<div class="navbar-inner">
 					<div class="container">');
-						$this->appendBody( $topnav->body );
-					$this->appendBody('</div></div></div>');
-					$this->appendBody('<div class="clear"></div>');
-			$this->appendBody('<div class="container-fluid">');
-			$this->appendBody('<div class="span2" >');
-			$this->appendBody('<div id="page-nav" class="well sidebar-nav">');
- 			$this->appendBody( $sidenav->body );
-			$this->appendBody('</div></div>');
-			$this->appendBody('<div class="span8">');
+				$this->appendBody( $topnav->body );
+				$this->appendBody('</div></div></div>');
+				$this->appendBody('<div class="clear"></div>');
+				$this->appendBody('<div class="container-fluid">');
+				$this->appendBody('<div class="span2" >');
+				$this->appendBody('<div id="page-nav" class="well sidebar-nav">');
+ 				$this->appendBody( $sidenav->body );
+				$this->appendBody('</div></div>');
+				$this->appendBody('<div class="span8">');
 
-
+		// This loads the file for the specified type if it exists.
 		$typefile = dirname(__FILE__) .'/'.$type .'.php';
 		if (file_exists($typefile)){
 			include_once ($typefile);
 			$this->appendBody('</div>');
 		}
+		// If the type file doesn't exist we'll just grab the title and body and render them.
 		else
 		{
 			$this->appendBody('<h1>'. $content->title . '</h1>')
