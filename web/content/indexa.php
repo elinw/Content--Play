@@ -48,17 +48,11 @@ class Simple extends JApplicationWeb
 	 */
 	protected function doExecute()
 	{
-		$this->dbo = JDatabase::getInstance(
-			array(
-				'driver' => $this->get('dbtype'),
-				'host' => $this->get('host'),
-				'user' => $this->get('user'),
-				'password' => $this->get('pass'),
-				'database' => $this->get('name'),
-				'prefix' => $this->get('dbprefix'),
-			)
-		);
-		$factory  = JContentFactory::getInstance('',$this->dbo,$this);
+
+		$config = JFactory::getConfig();
+		$this->dbo = JFactory::getDbo();
+		$this->session = JFactory::getSession();
+		JFactory::$application = $this;
 		$topnav = $factory->getContent('Navigation')->load(1510);
 		$content = $factory->getContent($this->input->get('type'))->load($this->input->get('content_id'));
 

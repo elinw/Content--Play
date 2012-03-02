@@ -34,8 +34,8 @@
 						{
 							$this->appendBody('<dd class="hits">' . $content->hits .'</dt>');
 						}
-						if ($content->config->likes)
+						if ($content->config->show_likes)
 						{
-							$this->appendBody('<dd class="hits">' . $content->likes .'</dt>');
+							$this->appendBody('<dd class="likes">' . $content->likes .'</dt>');
 						}
 					$this->appendBody('</dl>');

@@ -14,6 +14,7 @@
 
 				$this->appendBody($content->body);
 
+
 			$this->appendBody('<div class="goback"></div><a href="javascript:history.go(-1)">Go Back</a></div>');
 			$this->appendBody('</body></html>');
 
